@@ -57,47 +57,60 @@ define(['jquery',
          // Because we specified that Category should be placed on ROW in the data model handler,
          // this returns the number of rows for the data in Category.
          var nRows = oDataLayout.getEdgeExtent(datamodelshapes.Physical.ROW);
-         for(var i = 0 ; i < nRows ; i++) {
-            
+         //var rowValue1 = oDataLayout.getValue(datamodelshapes.Physical.ROW, 1 , 0, false);
+
             const table = document.createElement("table");
             table.setAttribute("id", "table_id");
             document.body.appendChild(table);
-
             const row = document.createElement("tr");
-            document.getElementById("table_id").appendChild(row);
 
+            document.getElementById("table_id").appendChild(row);
             const th = document.createElement("th");
             document.getElementById("table_id").appendChild(th);
+            var rowLayer1 = oDataLayout.getLayerMetadata(datamodelshapes.Physical.ROW, 0 , 1);
+            //var rowLayerTest = oDataLayout.getLayerMetadata(datamodelshapes.Physical.ROW, 0 , 1);
 
-            //get values from fields taken
-            var value = oDataLayout.getValue(datamodelshapes.Physical.DATA, i , 0, false);
-            //get metadata values from fields taken
-            var rowLayer1 = oDataLayout.getLayerMetadata(datamodelshapes.Physical.ROW, i , 1);
+            var title = document.createTextNode(rowLayer1)
+            th.appendChild(title)
+            
+            const th2 = document.createElement("th");
+            var rowLayer2 = "CITY POPULATION";
+            //var cText = th2.createTextNode(rowLayer2)
+            const text = document.createTextNode(rowLayer2)
+            th2.appendChild(text);
+            document.getElementById("table_id").appendChild(th2);
+
+            var rowValue;
+            var value;
             var elContainer = this.getContainerElem();
 
+         for(var i = 0 ; i < nRows ; i++) { 
+            rowValue = oDataLayout.getValue(datamodelshapes.Physical.ROW, 0 , i, false);
+            value = oDataLayout.getValue(datamodelshapes.Physical.DATA, i , 0, false);
+            //$(elContainer).append("RowN: "+ i +" " + rowValue+ "<br>"); 
+            //$(elContainer).append("valueN: "+ i +" " + value+ "<br>"); 
+            
             const row2 = document.createElement("tr");
             document.getElementById("table_id").appendChild(row2);
             //capsule cell
             const td = document.createElement("td");
-
             //create a div 
-            const content = document.createElement("div");
-            content.setAttribute("id","circle_cell")
-            td.appendChild(content);
+            //const content = document.createElement("div");
+            //content.setAttribute("id","circle_cell")
+            //td.appendChild(content);
             document.getElementById("table_id").appendChild(td);
+            const text = document.createTextNode(rowValue);
+            td.appendChild(text)
+            
 
-            const text = document.createTextNode(value);
-            document.getElementById("circle_cell").appendChild(text);
-
-
-            const days_past_due = document.createTextNode(rowLayer1)
-            th.appendChild(days_past_due)
-
-            // $(elContainer).html(messages.TEXT_MESSAGE.format("Testvalues Plugin", "" + nRows));
-            //$(elContainer).html(messages.TEXT_MESSAGE.format("Metadata", "" + rowLayer1));
-             $(elContainer).html(table);
-    
+            const td1 = document.createElement("td");
+            document.getElementById("table_id").appendChild(td1);
+            const texxt_td1 = document.createTextNode(value)
+            td1.appendChild(texxt_td1);
+        
          }
+         $(elContainer).html(table);
+
          // Retrieve the root container for our visualization.  This is provided by the framework.  It may not be deleted
          // but may be used to render.
 
