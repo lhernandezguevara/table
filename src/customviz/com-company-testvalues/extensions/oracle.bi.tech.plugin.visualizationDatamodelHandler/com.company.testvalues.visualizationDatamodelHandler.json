@@ -1,0 +1,64 @@
+
+{
+    "module" : "com-company-testvalues/testvaluesdatamodelhandler",
+    "method" : "getHandler",
+    "config" : {
+        "vizPreference" : 50 ,
+        "measureLabelConfig": {
+           "supportedEdges": ["color","detail","size"],
+           "defaultEdge": "color",
+           "visibility": "hidden"
+        },
+        "edgeConfig" : {
+            "measures" : {
+                "contentType": "measures",
+                "global": {
+                    "minCount": 0,
+                    "maxCount": 1,
+                    "priority": 10
+                },
+                "ui": {
+                    "customName": { "key": "TESTVALUES_ITEM_SIZE", "default": "Item Size" }
+                }
+            },
+            "row"    : {
+                "contentType": "mixed",
+                "global": {
+                    "priority": 1,
+                    "preferredMax": 1
+                },
+                "ui": {
+                    "customName": { "key": "TESTVALUES_ROW_LABEL", "default": "Testvalues Plugin Row" }
+                },
+                "categorical": {
+                    "functionalInfo": ["inner", "row", "categoricalType"]
+                }
+            },
+            "color"  : {
+               "contentType": "both",
+               "global": {
+                   "preferredMin": 1,
+                   "preferredMax": 1,
+                   "priority": 7
+               },
+               "measures": {
+                   "maxCount": 1
+               },
+               "categorical": {
+                  "functionalInfo": ["inner", "col", "categoricalType"]
+               }
+            },
+            "size": {
+                "contentType": "measures",
+                "global": {
+                    "maxCount": 1,
+                    "preferredMax": 1,
+                    "priority": 3
+                }
+            },
+            "glyph" : "none",
+            "detail" : "none"
+        }
+    }
+}
+            
