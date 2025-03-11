@@ -14,7 +14,7 @@
                 "contentType": "measures",
                 "global": {
                     "minCount": 0,
-                    "maxCount": 1,
+                    "maxCount": 5,
                     "priority": 10
                 },
                 "ui": {
@@ -42,7 +42,7 @@
                    "priority": 7
                },
                "measures": {
-                   "maxCount": 1
+                   "maxCount": 5
                },
                "categorical": {
                   "functionalInfo": ["inner", "col", "categoricalType"]
@@ -51,9 +51,9 @@
             "size": {
                 "contentType": "measures",
                 "global": {
-                    "maxCount": 1,
-                    "preferredMax": 1,
-                    "priority": 3
+                    "maxCount": 5,
+                    "preferredMax": 5,
+                    "priority": 5
                 }
             },
             "glyph" : "none",
